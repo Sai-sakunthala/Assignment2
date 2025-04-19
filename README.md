@@ -32,8 +32,7 @@ dataset/
 
 ## Running the Code
 
-### Basic Training
-python train_cnn.py --data_dir /path/to/dataset
+### Training
 
 python train_cnn.py \
   --data_dir ./dataset \
@@ -47,3 +46,19 @@ python train_cnn.py \
   --use_batchnorm True \
   --data_augmentation True \
   --use_wandb True
+  
+### full commands
+--data_dir             Path to dataset (ImageFolder format)
+--num_conv_layers      Number of convolutional layers [default: 5]
+--num_filters          Number of filters in first conv layer [default: 64]
+--kernel_size          Convolution kernel size [default: 3]
+--activation_fn        Activation function: ReLU, GELU, SiLU, Mish [default: SiLU]
+--dense_neurons        Neurons in fully connected layer [default: 256]
+--learning_rate        Learning rate [default: 0.001]
+--use_batchnorm        Enable batch normalization [default: True]
+--dropout_rate         Dropout rate [default: 0.3]
+--filter_organization  Filter scaling: same, double, half [default: same]
+--data_augmentation    Apply data augmentation [default: True]
+--batch_size           Batch size [default: 64]
+--epochs               Number of training epochs [default: 15]
+--use_wandb            Enable W&B logging [default: False]
