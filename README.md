@@ -71,7 +71,8 @@ python train_cnn.py \
 ## 2) test_data_partA.py
 
 This script evaluates a pre-trained CNN model on a test dataset of inaturalist using PyTorch Lightning. It supports optional integration with **Weights and Biases (W&B)** for logging and visualization.
-
+## sample run
+python test.py --test_dir /path/to/test_data --model_checkpoint /path/to/model.ckpt --batch_size 32 --use_wandb --wandb_project cnn-sweep --wandb_entity your_wandb_username --run_name test_run_1
 ## Arguments
 
 | Argument              | Description                                                                | Default Value    |
