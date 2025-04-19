@@ -20,15 +20,30 @@ This repository contains a configurable CNN image classification pipeline built 
 pip install torch torchvision pytorch-lightning wandb
 ### Dataset Format
 Place your dataset in the following structure (uses torchvision.datasets.ImageFolder):
-
-python-repl
-Copy
-Edit
-data_dir/
+<pre>
+dataset/
 ├── class_1/
-│   ├── img1.jpg
-│   ├── img2.jpg
+│   ├── image1.jpg
+│   └── image2.jpg
 ├── class_2/
-│   ├── img3.jpg
-│   ├── img4.jpg
-...
+│   ├── image3.jpg
+│   └── image4.jpg
+</pre>
+
+## Running the Code
+
+### Basic Training
+python train_cnn.py --data_dir /path/to/dataset
+
+python train_cnn.py \
+  --data_dir ./dataset \
+  --num_conv_layers 4 \
+  --num_filters 32 \
+  --kernel_size 5 \
+  --activation_fn GELU \
+  --dropout_rate 0.2 \
+  --filter_organization double \
+  --epochs 20 \
+  --use_batchnorm True \
+  --data_augmentation True \
+  --use_wandb True
