@@ -1,5 +1,5 @@
 # Assignment2
-wandb link: https://wandb.ai/sai-sakunthala-indian-institute-of-technology-madras/cnn-sweep/reports/Assignment-2-report--VmlldzoxMjM2MDMxOQ
+wandb link: https://api.wandb.ai/links/sai-sakunthala-indian-institute-of-technology-madras/6eqjawzo
 
 github link: https://github.com/Sai-sakunthala/Assignment2
 
