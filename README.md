@@ -1,6 +1,6 @@
 # Assignment2
 wandb link: https://wandb.ai/sai-sakunthala-indian-institute-of-technology-madras/cnn-sweep/reports/Assignment-2-report--VmlldzoxMjM2MDMxOQ
-# Part A
+# Part A : from scratch implementation
 ## 1)assignment_2_parta_train.py 
 ## Overview
 
@@ -71,6 +71,16 @@ python train_cnn.py \
 ## 2) test_data_partA.py
 
 This script evaluates a pre-trained CNN model on a test dataset of inaturalist using PyTorch Lightning. It supports optional integration with **Weights and Biases (W&B)** for logging and visualization.
+## W&B Integration
+When enabled, logs include:
+
+Test Loss
+
+Test Accuracy
+
+Class-wise Accuracy
+
+Sample Predictions (True vs Predicted labels)
 ## sample run
 python test.py --test_dir /path/to/test_data --model_checkpoint /path/to/model.ckpt --batch_size 32 --use_wandb --wandb_project cnn-sweep --wandb_entity your_wandb_username --run_name test_run_1
 ## Arguments
@@ -86,3 +96,23 @@ python test.py --test_dir /path/to/test_data --model_checkpoint /path/to/model.c
 | `--wandb_sweep_id`     | Sweep ID to pull the best model                                            | None             |
 | `--run_name`           | W&B run name                                                              | test_run         |
 | `--visualize_samples`  | Visualize predictions using W&B                                            | False            |
+
+# Part B: Fine-Tuning EfficientNetV2
+
+This repository contains code for fine-tuning the EfficientNetV2 model using PyTorch Lightning and Weights and Biases for the iNaturalist dataset.
+## Weights and Biases Integration
+WandB is used for logging training progress, loss, accuracy, and model checkpoints.
+
+## Checkpoints
+The best model will be saved based on the highest validation accuracy.
+## sample code
+python train.py --data_dir /path/to/inaturalist/train --batch_size 64 --max_epochs 25 --run_name "efficient_net_finetune_run"
+
+## arguments
+| Argument         | Description                                                      | Default                              |
+|------------------|------------------------------------------------------------------|--------------------------------------|
+| `--data_dir`     | Path to the training dataset (ImageFolder format)                | `/root/inaturalist_12K/train`       |
+| `--batch_size`   | Batch size for training/validation                               | 64                                   |
+| `--max_epochs`   | Number of training epochs                                        | 25                                   |
+| `--run_name`     | The name of the run for WandB logging                            | `efficient_net_4`                   |
+
