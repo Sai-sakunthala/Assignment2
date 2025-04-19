@@ -1,11 +1,13 @@
 # Assignment2
 wandb link: https://wandb.ai/sai-sakunthala-indian-institute-of-technology-madras/cnn-sweep/reports/Assignment-2-report--VmlldzoxMjM2MDMxOQ
 github link: https://github.com/Sai-sakunthala/Assignment2
+
+This repository 6 files, 3 .py files and 3 .ipynb files. Below is explanation of .py files, the .ipynb files are the same version of this with wandb sweeps included and ready to run versions on colab notebook
 # Part A : from scratch implementation
 ## 1) assignment_2_parta_train.py 
 ## Overview
 
-This repository contains a configurable CNN image classification pipeline built using **PyTorch Lightning** for inaturalist_data. It supports dynamic model architecture, data augmentation, and integrates with **Weights & Biases (W&B)** for experiment tracking.
+This file contains a configurable CNN image classification pipeline built using **PyTorch Lightning** for inaturalist_data. It supports dynamic model architecture, data augmentation, and integrates with **Weights & Biases (W&B)** for experiment tracking.
 
 ## Features
 
@@ -114,35 +116,25 @@ python test.py --test_dir /path/to/test_data --model_checkpoint /path/to/model.c
 This repository contains code for fine-tuning the EfficientNetV2 model using PyTorch Lightning and Weights and Biases for the iNaturalist dataset.
 
 ## FineTunedModel module
-The FineTunedModel class is a PyTorch Lightning-based model for fine-tuning the EfficientNet-V2-M architecture. Here's a detailed explanation:
+#### Model Initialization:
+- **EfficientNet-V2-M** is loaded with pre-trained **ImageNet** weights.
+- Blocks of the model are initially frozen based on `freeze_k`.
+- The final classifier is replaced with a **Dropout** layer and a **Linear** layer, tailored for `num_classes`.
 
-Model Initialization:
+#### Training Strategy:
+- Freezes the first `freeze_k` layers.
+- Gradually unfreezes layers every `unfreeze_every` epochs to adapt progressively.
 
-EfficientNet-V2-M is loaded with pre-trained ImageNet weights.
+#### Optimization:
+- Uses **Adam** optimizer with **Cosine Annealing** LR scheduler for better convergence.
 
-Blocks of the model are frozen initially (based on freeze_k).
+#### Training & Validation:
+- Uses standard **Cross-Entropy Loss** and logs **accuracy** metrics for both training and validation.
 
-The final classifier is replaced with a Dropout layer and a new Linear layer for classification, tailored for num_classes.
-
-Training Strategy:
-
-Freezes the first freeze_k layers.
-
-Gradually unfreezes layers every unfreeze_every epochs, allowing the model to adapt progressively.
-
-Optimization:
-
-Adam optimizer is used with a Cosine Annealing LR scheduler for better convergence.
-
-Training & Validation:
-
-Standard cross-entropy loss and accuracy metrics are logged for both training and validation.
-
-Dynamic Layer Freezing:
-
-Layers are progressively unfrozen during training for more refined feature learning, reducing overfitting.
-
-This model provides a progressive fine-tuning approach, ideal for transfer learning scenarios.
+#### Dynamic Layer Freezing:
+- Gradual unfreezing of layers reduces overfitting, enabling more refined feature learning.
+  
+This model provides a **progressive fine-tuning** approach, ideal for **transfer learning** scenarios.
 ## Weights and Biases Integration
 WandB is used for logging training progress, loss, accuracy, and model checkpoints.
 
