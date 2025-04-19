@@ -1,5 +1,6 @@
 # Assignment2
 wandb link: https://wandb.ai/sai-sakunthala-indian-institute-of-technology-madras/cnn-sweep/reports/Assignment-2-report--VmlldzoxMjM2MDMxOQ
+github link: https://github.com/Sai-sakunthala/Assignment2
 # Part A : from scratch implementation
 ## 1) assignment_2_parta_train.py 
 ## Overview
