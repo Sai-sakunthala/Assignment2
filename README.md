@@ -2,7 +2,7 @@
 # Part A
 ## Overview
 
-This repository contains a configurable CNN image classification pipeline built using **PyTorch Lightning**. It supports dynamic model architecture, data augmentation, and integrates with **Weights & Biases (W&B)** for experiment tracking.
+This repository contains a configurable CNN image classification pipeline built using **PyTorch Lightning** for inaturalist_data. It supports dynamic model architecture, data augmentation, and integrates with **Weights & Biases (W&B)** for experiment tracking.
 
 ## Features
 
