@@ -1,5 +1,6 @@
 # Assignment2
 # Part A
+## 1)assignment_2_parta_train.py 
 ## Overview
 
 This repository contains a configurable CNN image classification pipeline built using **PyTorch Lightning** for inaturalist_data. It supports dynamic model architecture, data augmentation, and integrates with **Weights & Biases (W&B)** for experiment tracking.
@@ -65,3 +66,21 @@ python train_cnn.py \
 | `--batch_size`         | Batch size                                           | `64`          |
 | `--epochs`             | Number of training epochs                            | `15`          |
 | `--use_wandb`          | Enable W&B logging                                   | `False`       |
+
+## 2) test_data_partA.py
+
+This script evaluates a pre-trained CNN model on a test dataset of inaturalist using PyTorch Lightning. It supports optional integration with **Weights and Biases (W&B)** for logging and visualization.
+
+## Arguments
+
+| Argument              | Description                                                                | Default Value    |
+|-----------------------|----------------------------------------------------------------------------|------------------|
+| `--test_dir`           | Path to the test dataset directory (ImageFolder format)                    | N/A              |
+| `--model_checkpoint`   | Path to model checkpoint (.ckpt)                                           | N/A              |
+| `--batch_size`         | Batch size for testing                                                      | 64               |
+| `--use_wandb`          | Enable W&B logging                                                          | False            |
+| `--wandb_project`      | W&B project name                                                           | cnn-sweep        |
+| `--wandb_entity`       | W&B username/entity (required if using WandB)                              | N/A              |
+| `--wandb_sweep_id`     | Sweep ID to pull the best model                                            | None             |
+| `--run_name`           | W&B run name                                                              | test_run         |
+| `--visualize_samples`  | Visualize predictions using W&B                                            | False            |
