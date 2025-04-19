@@ -112,6 +112,37 @@ python test.py --test_dir /path/to/test_data --model_checkpoint /path/to/model.c
 # Part B: Fine-Tuning EfficientNetV2
 ## assignment_2_partb_train.py
 This repository contains code for fine-tuning the EfficientNetV2 model using PyTorch Lightning and Weights and Biases for the iNaturalist dataset.
+
+## FineTunedModel module
+The FineTunedModel class is a PyTorch Lightning-based model for fine-tuning the EfficientNet-V2-M architecture. Here's a detailed explanation:
+
+Model Initialization:
+
+EfficientNet-V2-M is loaded with pre-trained ImageNet weights.
+
+Blocks of the model are frozen initially (based on freeze_k).
+
+The final classifier is replaced with a Dropout layer and a new Linear layer for classification, tailored for num_classes.
+
+Training Strategy:
+
+Freezes the first freeze_k layers.
+
+Gradually unfreezes layers every unfreeze_every epochs, allowing the model to adapt progressively.
+
+Optimization:
+
+Adam optimizer is used with a Cosine Annealing LR scheduler for better convergence.
+
+Training & Validation:
+
+Standard cross-entropy loss and accuracy metrics are logged for both training and validation.
+
+Dynamic Layer Freezing:
+
+Layers are progressively unfrozen during training for more refined feature learning, reducing overfitting.
+
+This model provides a progressive fine-tuning approach, ideal for transfer learning scenarios.
 ## Weights and Biases Integration
 WandB is used for logging training progress, loss, accuracy, and model checkpoints.
 
