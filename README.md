@@ -17,6 +17,17 @@ This repository contains a configurable CNN image classification pipeline built 
 - GPU acceleration
 - Optional W&B logging
 
+# CNN module
+The CNN class is a convolutional neural network built using PyTorch Lightning. Here’s an overview of its components:
+
+Convolutional Layers: The model dynamically adds multiple convolution layers based on num_conv_layers. Each layer is followed by batch normalization (optional), an activation function (default SiLU), dropout, and max pooling. The number of filters is adjustable with options to either double or halve filters between layers.
+
+Dense Layers: After the convolution block, the output is flattened and passed through a fully connected layer (fc1) with batch normalization and activation. A dropout layer is applied if needed.
+
+Output Layer: The final layer (fc2) outputs class predictions for classification.
+
+Optimizer and Scheduler: The optimizer is Adam, and a cosine annealing learning rate scheduler is used.
+
 ## Getting Started
 
 ### Install Dependencies
