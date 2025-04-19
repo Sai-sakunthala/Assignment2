@@ -1,7 +1,7 @@
 # Assignment2
 wandb link: https://wandb.ai/sai-sakunthala-indian-institute-of-technology-madras/cnn-sweep/reports/Assignment-2-report--VmlldzoxMjM2MDMxOQ
 # Part A : from scratch implementation
-## 1)assignment_2_parta_train.py 
+## 1) assignment_2_parta_train.py 
 ## Overview
 
 This repository contains a configurable CNN image classification pipeline built using **PyTorch Lightning** for inaturalist_data. It supports dynamic model architecture, data augmentation, and integrates with **Weights & Biases (W&B)** for experiment tracking.
@@ -98,7 +98,7 @@ python test.py --test_dir /path/to/test_data --model_checkpoint /path/to/model.c
 | `--visualize_samples`  | Visualize predictions using W&B                                            | False            |
 
 # Part B: Fine-Tuning EfficientNetV2
-
+## assignment_2_partb_train.py
 This repository contains code for fine-tuning the EfficientNetV2 model using PyTorch Lightning and Weights and Biases for the iNaturalist dataset.
 ## Weights and Biases Integration
 WandB is used for logging training progress, loss, accuracy, and model checkpoints.
